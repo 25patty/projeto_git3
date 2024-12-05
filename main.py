@@ -1,47 +1,30 @@
-# Calculadora Simples
+# Função para obter um número válido
+def obter_numero(mensagem):
+    while True:  # Laço para garantir que o usuário insira um número válido
+        try:
+            numero = float(input(mensagem))  # Tenta converter a entrada para float
+            return numero  # Retorna o número se for válido
+        except ValueError:  # Se ocorrer um erro, solicita que insira um número válido
+            print("Por favor, insira um número válido.")
 
-def soma(a, b):
-    return a + b
+# Solicitação de números ao usuário
+print("Bem-vindo ao programa de operações matemáticas!")
 
-def subtracao(a, b):
-    return a - b
+num1 = obter_numero("Digite o primeiro número: ")  # Obtém o primeiro número
+num2 = obter_numero("Digite o segundo número: ")   # Obtém o segundo número
 
-def multiplicacao(a, b):
-    return a * b
+# Realizando algumas operações matemáticas
+soma = num1 + num2
+subtracao = num1 - num2
+multiplicacao = num1 * num2
+if num2 != 0:
+    divisao = num1 / num2
+else:
+    divisao = "Indefinido (divisão por zero)"
 
-def divisao(a, b):
-    if b != 0:
-        return a / b
-    else:
-        return "Erro: Divisão por zero não é permitida."
-
-# Menu de opções
-def menu():
-    print("Selecione a operação desejada:")
-    print("1. Soma")
-    print("2. Subtração")
-    print("3. Multiplicação")
-    print("4. Divisão")
-    print("0. Sair")
-
-while True:
-    menu()
-    escolha = input("Digite a opção (0-4): ")
-
-    if escolha == "0":
-        print("Encerrando a calculadora. Até mais!")
-        break
-
-    num1 = float(input("Digite o primeiro número: "))
-    num2 = float(input("Digite o segundo número: "))
-
-    if escolha == "1":
-        print(f"Resultado: {soma(num1, num2)}")
-    elif escolha == "2":
-        print(f"Resultado: {subtracao(num1, num2)}")
-    elif escolha == "3":
-        print(f"Resultado: {multiplicacao(num1, num2)}")
-    elif escolha == "4":
-        print(f"Resultado: {divisao(num1, num2)}")
-    else:
-        print("Opção inválida! Tente novamente.")
+# Exibindo os resultados
+print(f"\nResultado das operações:")
+print(f"Soma: {soma}")
+print(f"Subtração: {subtracao}")
+print(f"Multiplicação: {multiplicacao}")
+print(f"Divisão: {divisao}")
